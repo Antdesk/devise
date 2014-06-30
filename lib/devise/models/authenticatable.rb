@@ -107,6 +107,7 @@ module Devise
           # and passing a new list of attributes you want to exempt. All attributes
           # given to :except will simply add names to exempt to Devise internal list.
           def #{method}(options=nil)
+            ActiveSupport::Deprecation.warn "method #{method} options #{options}"
             options ||= {}
             options[:except] = Array(options[:except])
 
