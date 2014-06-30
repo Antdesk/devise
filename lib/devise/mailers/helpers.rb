@@ -12,6 +12,7 @@ module Devise
 
       # Configure default email options
       def devise_mail(record, action, opts={})
+        ActiveSupport::Deprecation.warn "Devise mail"
         initialize_from_record(record)
         mail headers_for(action, opts)
       end

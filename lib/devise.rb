@@ -38,6 +38,7 @@ module Devise
     autoload :Authenticatable, 'devise/strategies/authenticatable'
   end
 
+
   # Constants which holds devise configuration for extensions. Those should
   # not be modified by the "end user" (this is why they are constants).
   ALL         = []
