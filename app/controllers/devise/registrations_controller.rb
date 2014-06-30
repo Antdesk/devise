@@ -10,8 +10,9 @@ class Devise::RegistrationsController < DeviseController
 
   # POST /resource
   def create
+    ActiveSupport::Deprecation.warn "registration controller"
     build_resource(sign_up_params)
-
+    ActiveSupport::Deprecation.warn "registration controller after build_resource"
     resource_saved = resource.save
     yield resource if block_given?
     if resource_saved
@@ -20,6 +21,7 @@ class Devise::RegistrationsController < DeviseController
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
       else
+        ActiveSupport::Deprecation.warn "after_inactive_sign_up"
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
         expire_data_after_sign_in!
         respond_with resource, location: after_inactive_sign_up_path_for(resource)
@@ -112,9 +114,11 @@ class Devise::RegistrationsController < DeviseController
   # The path used after sign up for inactive accounts. You need to overwrite
   # this method in your own RegistrationsController.
   def after_inactive_sign_up_path_for(resource)
+    ActiveSupport::Deprecation.warn "after_inactive_sign_up in"
     scope = Devise::Mapping.find_scope!(resource)
     router_name = Devise.mappings[scope].router_name
     context = router_name ? send(router_name) : self
+    ActiveSupport::Deprecation.warn "#{scope} #{router_name}"
     context.respond_to?(:root_path) ? context.root_path : "/"
   end
 
