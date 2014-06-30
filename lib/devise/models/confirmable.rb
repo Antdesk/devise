@@ -57,6 +57,7 @@ module Devise
       # is already confirmed, add an error to email field. If the user is invalid
       # add errors
       def confirm!
+        ActiveSupport::Deprecation.warn "confirm!"
         pending_any_confirmation do
           if confirmation_period_expired?
             self.errors.add(:email, :confirmation_period_expired,
@@ -77,7 +78,7 @@ module Devise
           else
             save(validate: false)
           end
-
+          ActiveSupport::Deprecation.warn "after_confirtmation"
           after_confirmation if saved
           saved
         end
