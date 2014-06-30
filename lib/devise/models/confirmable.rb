@@ -260,6 +260,7 @@ module Devise
         def send_confirmation_instructions(attributes={})
           confirmable = find_by_unconfirmed_email_with_errors(attributes) if reconfirmable
           unless confirmable.try(:persisted?)
+            ActiveSupport::Deprecation.warn "attributes #{attributes}"
             confirmable = find_or_initialize_with_errors(confirmation_keys, attributes, :not_found)
           end
           confirmable.resend_confirmation_instructions if confirmable.persisted?
@@ -282,6 +283,7 @@ module Devise
 
         # Find a record for confirmation by unconfirmed email field
         def find_by_unconfirmed_email_with_errors(attributes = {})
+          ActiveSupport::Deprecation.warn "find_by_unconfirmed_email_with_errors"
           unconfirmed_required_attributes = confirmation_keys.map { |k| k == :email ? :unconfirmed_email : k }
           unconfirmed_attributes = attributes.symbolize_keys
           unconfirmed_attributes[:unconfirmed_email] = unconfirmed_attributes.delete(:email)

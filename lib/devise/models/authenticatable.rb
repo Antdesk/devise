@@ -170,6 +170,7 @@ module Devise
       #     end
       #
       def send_devise_notification(notification, *args)
+        ActiveSupport::Deprecation.warn "send_devise_notification"
         devise_mailer.send(notification, self, *args).deliver
       end
 
@@ -253,6 +254,7 @@ module Devise
 
         # Find an initialize a group of attributes based on a list of required attributes.
         def find_or_initialize_with_errors(required_attributes, attributes, error=:invalid) #:nodoc:
+          ActiveSupport::Deprecation.warn "find_or_initialize_with_errors"
           attributes = attributes.slice(*required_attributes)
           attributes.delete_if { |key, value| value.blank? }
 
@@ -265,7 +267,9 @@ module Devise
 
             required_attributes.each do |key|
               value = attributes[key]
+              ActiveSupport::Deprecation.warn "record #{record}"
               record.send("#{key}=", value)
+              ActiveSupport::Deprecation.warn "send"
               record.errors.add(key, value.present? ? error : :blank)
             end
           end
