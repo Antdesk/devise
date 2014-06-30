@@ -27,8 +27,8 @@
       <file leaf-file-name="authenticatable.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/devise/models/authenticatable.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35820895" vertical-offset="864" max-vertical-offset="5310">
-              <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.41791046" vertical-offset="3024" max-vertical-offset="5382">
+              <caret line="182" column="77" selection-start-line="182" selection-start-column="77" selection-end-line="182" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -710,8 +710,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/devise/models/authenticatable.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35820895" vertical-offset="864" max-vertical-offset="5310">
-          <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
+        <state vertical-scroll-proportion="0.41791046" vertical-offset="3024" max-vertical-offset="5382">
+          <caret line="182" column="77" selection-start-line="182" selection-start-column="77" selection-end-line="182" selection-end-column="77" />
           <folding />
         </state>
       </provider>
