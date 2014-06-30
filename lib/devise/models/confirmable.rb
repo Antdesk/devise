@@ -258,11 +258,14 @@ module Devise
         # field. If no user is found, returns a new user with an email not found error.
         # Options must contain the user email
         def send_confirmation_instructions(attributes={})
+          ActiveSupport::Deprecation.warn "send_confirmation_instructions"
           confirmable = find_by_unconfirmed_email_with_errors(attributes) if reconfirmable
+          ActiveSupport::Deprecation.warn "#{confirmable}{"
           unless confirmable.try(:persisted?)
             ActiveSupport::Deprecation.warn "attributes #{attributes}"
             confirmable = find_or_initialize_with_errors(confirmation_keys, attributes, :not_found)
           end
+          ActiveSupport::Deprecation.warn "resend"
           confirmable.resend_confirmation_instructions if confirmable.persisted?
           confirmable
         end
