@@ -53,10 +53,10 @@ module Devise
     module Authenticatable
       extend ActiveSupport::Concern
 
-      BLACKLIST_FOR_SERIALIZATION = [:encrypted_password, :reset_password_token, :reset_password_sent_at,
+      BLACKLIST_FOR_SERIALIZATION = [:reset_password_token, :reset_password_sent_at,
         :remember_created_at, :sign_in_count, :current_sign_in_at, :last_sign_in_at, :current_sign_in_ip,
-        :last_sign_in_ip, :password_salt, :confirmation_token, :confirmed_at, :confirmation_sent_at,
-        :remember_token, :unconfirmed_email, :failed_attempts, :unlock_token, :locked_at]
+        :last_sign_in_ip, :password_salt,
+        :remember_token, :failed_attempts, :unlock_token, :locked_at]
 
       included do
         class_attribute :devise_modules, instance_writer: false
@@ -98,7 +98,7 @@ module Devise
       array = %w(serializable_hash)
       # to_xml does not call serializable_hash on 3.1
       array << "to_xml" if Rails::VERSION::STRING[0,3] == "3.1"
-
+      ActiveSupport::Deprecation.warn "array #{array} "
       array.each do |method|
         class_eval <<-RUBY, __FILE__, __LINE__
           # Redefine to_xml and serializable_hash in models for more secure defaults.
@@ -107,7 +107,7 @@ module Devise
           # and passing a new list of attributes you want to exempt. All attributes
           # given to :except will simply add names to exempt to Devise internal list.
           def #{method}(options=nil)
-            ActiveSupport::Deprecation.warn "method #{method} options #{options}"
+
             options ||= {}
             options[:except] = Array(options[:except])
 
