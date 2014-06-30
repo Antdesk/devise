@@ -14,7 +14,9 @@ class Devise::RegistrationsController < DeviseController
     build_resource(sign_up_params)
     ActiveSupport::Deprecation.warn "registration controller after build_resource"
     resource_saved = resource.save
+    ActiveSupport::Deprecation.warn "registration controller after resource.save"
     yield resource if block_given?
+    ActiveSupport::Deprecation.warn "registration controller after yield"
     if resource_saved
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_flashing_format?
