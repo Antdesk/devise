@@ -31,6 +31,7 @@ module Devise
     # Receives an object and find a scope for it. If a scope cannot be found,
     # raises an error. If a symbol is given, it's considered to be the scope.
     def self.find_scope!(obj)
+      ActiveSupport::Deprecation.warn "find scope #{obj}"
       case obj
       when String, Symbol
         return obj
@@ -44,6 +45,7 @@ module Devise
     end
 
     def self.find_by_path!(path, path_type=:fullpath)
+      ActiveSupport::Deprecation.warn "find path #{obj}"
       Devise.mappings.each_value { |m| return m if path.include?(m.send(path_type)) }
       raise "Could not find a valid mapping for path #{path.inspect}"
     end
@@ -62,6 +64,15 @@ module Devise
       @format = options[:format]
 
       @router_name = options[:router_name]
+      ActiveSupport::Deprecation.warn "initialize"
+      ActiveSupport::Deprecation.warn "@scoped_path #{@scoped_path}"
+      ActiveSupport::Deprecation.warn "@singular #{@singular}"
+      ActiveSupport::Deprecation.warn "@class_name #{@class_name}"
+      ActiveSupport::Deprecation.warn "@klass #{@klass}"
+      ActiveSupport::Deprecation.warn "@path #{@path}"
+      ActiveSupport::Deprecation.warn "@path_prefix #{@path_prefix}"
+      ActiveSupport::Deprecation.warn "@sign_out_via #{@sign_out_via}"
+      ActiveSupport::Deprecation.warn "@format #{@format}"
 
       default_failure_app(options)
       default_controllers(options)
@@ -130,22 +141,26 @@ module Devise
       @controllers = Hash.new { |h,k| h[k] = "#{mod}/#{k}" }
       @controllers.merge!(options[:controllers]) if options[:controllers]
       @controllers.each { |k,v| @controllers[k] = v.to_s }
+      ActiveSupport::Deprecation.warn "default_controllers #{@controllers}"
     end
 
     def default_path_names(options)
       @path_names = Hash.new { |h,k| h[k] = k.to_s }
       @path_names[:registration] = ""
       @path_names.merge!(options[:path_names]) if options[:path_names]
+      ActiveSupport::Deprecation.warn "default_path_names #{@path_names}"
     end
 
     def default_constraints(options)
       @constraints = Hash.new
       @constraints.merge!(options[:constraints]) if options[:constraints]
+      ActiveSupport::Deprecation.warn "default_constraints #{@constraints}"
     end
 
     def default_defaults(options)
       @defaults = Hash.new
       @defaults.merge!(options[:defaults]) if options[:defaults]
+      ActiveSupport::Deprecation.warn "default_defaults #{@defaults}"
     end
 
     def default_used_route(options)
@@ -158,6 +173,7 @@ module Devise
       else
         @used_routes = self.routes - Array(options[:skip]).map(&singularizer)
       end
+      ActiveSupport::Deprecation.warn "default_used_route #{@used_routes}"
     end
 
     def default_used_helpers(options)
@@ -170,6 +186,7 @@ module Devise
       else
         @used_helpers = self.routes
       end
+      ActiveSupport::Deprecation.warn "default_used_helpers #{@used_helpers}"
     end
   end
 end
