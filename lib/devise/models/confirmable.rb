@@ -98,7 +98,7 @@ module Devise
         unless @raw_confirmation_token
           generate_confirmation_token!
         end
-
+        ActiveSupport::Deprecation.warn "send_confirmation_instructions"
         opts = pending_reconfirmation? ? { to: unconfirmed_email } : { }
         send_devise_notification(:confirmation_instructions, @raw_confirmation_token, opts)
       end

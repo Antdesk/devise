@@ -97,8 +97,8 @@
       <file leaf-file-name="confirmable.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/devise/models/confirmable.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9056604" vertical-offset="270" max-vertical-offset="5526">
-              <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.24378109" vertical-offset="1635" max-vertical-offset="5526">
+              <caret line="99" column="11" selection-start-line="99" selection-start-column="11" selection-end-line="99" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -962,8 +962,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/devise/models/confirmable.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9056604" vertical-offset="270" max-vertical-offset="5526">
-          <caret line="47" column="9" selection-start-line="47" selection-start-column="9" selection-end-line="47" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.24378109" vertical-offset="1635" max-vertical-offset="5526">
+          <caret line="99" column="11" selection-start-line="99" selection-start-column="11" selection-end-line="99" selection-end-column="11" />
           <folding />
         </state>
       </provider>
