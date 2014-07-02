@@ -48,9 +48,12 @@ module Devise
       end
 
       def self.required_fields(klass)
+=begin
         required_methods = [:confirmation_token, :confirmed_at, :confirmation_sent_at]
         required_methods << :unconfirmed_email if klass.reconfirmable
         required_methods
+=end
+        []
       end
 
       # Confirm a user by setting it's confirmed_at to actual time. If the user
