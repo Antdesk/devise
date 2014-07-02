@@ -34,7 +34,7 @@ module Devise
 
       included do
         before_create :generate_confirmation_token, if: :confirmation_required?
-        #after_create  :send_on_create_confirmation_instructions, if: :send_confirmation_notification?
+        after_create  :send_on_create_confirmation_instructions, if: :send_confirmation_notification?
         before_update :postpone_email_change_until_confirmation_and_regenerate_confirmation_token, if: :postpone_email_change?
         after_update  :send_reconfirmation_instructions,  if: :reconfirmation_required?
       end
