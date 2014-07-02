@@ -27,6 +27,10 @@ module Devise
     # inside the given class.
     #
     def self.config(mod, *accessors) #:nodoc:
+
+      if mod.to_s.include? "Mailer"
+        raise ArgumentError, "dupa dupa #{mod}"
+      end
       class << mod; attr_accessor :available_configs; end
       mod.available_configs = accessors
 
