@@ -396,8 +396,9 @@ module Devise
     if options[:model]
       path = (options[:model] == true ? "devise/models/#{module_name}" : options[:model])
       camelized = ActiveSupport::Inflector.camelize(module_name.to_s)
-      ActiveSupport::Deprecation.warn "#{module_name}"
-      raise ArgumentError, "#{module_name}"
+      if module_name == Devise::Mailer
+        raise ArgumentError, "#{module_name}"
+      end
       Devise::Models.send(:autoload, camelized.to_sym, path)
     end
 
