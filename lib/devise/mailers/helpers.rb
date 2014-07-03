@@ -27,8 +27,6 @@ module Devise
         ActiveSupport::Deprecation.warn "#{@scope_name}"
         ActiveSupport::Deprecation.warn "#{@resource}"
         temp = template_paths()
-        ActiveSupport::Deprecation.warn "#{temp}"
-
       end
 
       def devise_mapping
@@ -44,6 +42,9 @@ module Devise
           template_path: template_paths,
           template_name: action
         }.merge(opts)
+
+        ActiveSupport::Deprecation.warn "headers_for"
+        ActiveSupport::Deprecation.warn "#{headers}"
 
         @email = headers[:to]
         headers
