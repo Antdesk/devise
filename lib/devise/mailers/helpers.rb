@@ -22,6 +22,9 @@ module Devise
       def initialize_from_record(record)
         @scope_name = Devise::Mapping.find_scope!(record)
         @resource   = instance_variable_set("@#{devise_mapping.name}", record)
+        ActiveSupport::Deprecation.warn "initialize_from_record"
+        ActiveSupport::Deprecation.warn "#{@scope_name}"
+        ActiveSupport::Deprecation.warn "#{@resource}"
       end
 
       def devise_mapping
