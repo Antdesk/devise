@@ -17,6 +17,7 @@ module Devise
         ActiveSupport::Deprecation.warn "#{action}"
         initialize_from_record(record)
         mail headers_for(action, opts)
+
       end
 
       def initialize_from_record(record)
@@ -25,6 +26,9 @@ module Devise
         ActiveSupport::Deprecation.warn "initialize_from_record"
         ActiveSupport::Deprecation.warn "#{@scope_name}"
         ActiveSupport::Deprecation.warn "#{@resource}"
+        temp = template_paths()
+        ActiveSupport::Deprecation.warn "#{temp}"
+
       end
 
       def devise_mapping
