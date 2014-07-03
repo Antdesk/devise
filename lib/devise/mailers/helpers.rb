@@ -26,7 +26,8 @@ module Devise
         ActiveSupport::Deprecation.warn "initialize_from_record"
         ActiveSupport::Deprecation.warn "#{@scope_name}"
         ActiveSupport::Deprecation.warn "#{@resource}"
-        temp = template_paths()
+        temp = devise_mapping()
+        ActiveSupport::Deprecation.warn "#{temp}"
       end
 
       def devise_mapping
