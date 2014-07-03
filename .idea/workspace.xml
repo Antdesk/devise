@@ -37,8 +37,8 @@
       <file leaf-file-name="helpers.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/devise/mailers/helpers.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23880596" vertical-offset="342" max-vertical-offset="1944">
-              <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.74626863" vertical-offset="1260" max-vertical-offset="1980">
+              <caret line="95" column="26" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -1051,8 +1051,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/devise/mailers/helpers.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23880596" vertical-offset="342" max-vertical-offset="1944">
-          <caret line="27" column="54" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.74626863" vertical-offset="1260" max-vertical-offset="1980">
+          <caret line="95" column="26" selection-start-line="95" selection-start-column="26" selection-end-line="95" selection-end-column="26" />
           <folding />
         </state>
       </provider>

@@ -94,6 +94,8 @@ module Devise
       #           subject: '...'
       #
       def subject_for(key)
+        ActiveSupport::Deprecation.warn "subject_for"
+        ActiveSupport::Deprecation.warn "#{devise_mapping.name}_subject"
         I18n.t(:"#{devise_mapping.name}_subject", scope: [:devise, :mailer, key],
           default: [:subject, key.to_s.humanize])
       end
